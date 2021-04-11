@@ -1,7 +1,7 @@
 package com.charlye934.beerproyect.home.presentation.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -9,7 +9,6 @@ import com.charlye934.beerproyect.R
 import com.charlye934.beerproyect.databinding.ItemBeerBinding
 import com.charlye934.beerproyect.home.data.model.Beer
 import com.charlye934.beerproyect.home.presentation.listener.BeerListener
-import kotlinx.android.synthetic.main.item_beer.view.*
 
 class BeerAdapter(
     private val beerList: ArrayList<Beer>,
@@ -46,6 +45,9 @@ class BeerAdapter(
             binding.cardViewBeer.setOnClickListener {
                 beerListener.saveBeer(beer)
                 beerListener.goToBeerDetail()
+            }
+            binding.imgFavorite.setOnClickListener {
+                Log.d("__tag","favorito")
             }
         }
 

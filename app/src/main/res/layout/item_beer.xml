@@ -15,12 +15,29 @@
         android:orientation="vertical"
         android:background="#dfd3c3">
 
-        <ImageView
-            android:id="@+id/imgBeer"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:src="@mipmap/ic_beer_round"
-            android:padding="8dp" />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgBeer"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:src="@mipmap/ic_beer_round"
+                android:padding="8dp" />
+
+            <ImageView
+                android:id="@+id/imgFavorite"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentTop="@id/imgBeer"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/ic_like" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tvNameBeer"

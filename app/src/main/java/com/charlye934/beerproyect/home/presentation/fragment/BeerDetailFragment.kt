@@ -38,6 +38,7 @@ class BeerDetailFragment : Fragment() {
         if(savedInstanceState == null){
             viewModel = listener.viewModel
             beer = viewModel.getData()
+            listener.hideNavigation()
             setData()
         }
     }

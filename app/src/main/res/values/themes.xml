@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.BeerProyect" parent="Theme.MaterialComponents.NoActionBar.Bridge">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#433520</item>
-        <item name="colorPrimaryVariant">#596e79</item>
+        <item name="colorPrimary">#206a5d</item>
+        <item name="colorPrimaryVariant">#81b214</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

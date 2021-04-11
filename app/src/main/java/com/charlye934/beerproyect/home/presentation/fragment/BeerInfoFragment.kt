@@ -2,20 +2,17 @@ package com.charlye934.beerproyect.home.presentation.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.charlye934.beerproyect.databinding.FragmentBeerInfoBinding
 import com.charlye934.beerproyect.home.HomeActivity
 import com.charlye934.beerproyect.home.presentation.adapter.BeerAdapter
 import com.charlye934.beerproyect.home.presentation.viewmodel.BeerViewModel
 import com.charlye934.beerproyect.utils.Resources
-import kotlinx.android.synthetic.main.fragment_beer_info.*
 
 class BeerInfoFragment : Fragment() {
 
@@ -39,6 +36,8 @@ class BeerInfoFragment : Fragment() {
                 listener
             )
 
+            listener.showNavigation()
+
             configButtons()
             getDataBeer()
             initRecyclerView()
@@ -48,14 +47,14 @@ class BeerInfoFragment : Fragment() {
 
     private fun configButtons(){
         if(viewModel.page == 1)
-            btnPrevious.visibility = View.INVISIBLE
+            binding.btnPrevious.visibility = View.INVISIBLE
         else
-            btnPrevious.visibility = View.VISIBLE
+            binding.btnPrevious.visibility = View.VISIBLE
 
         if(viewModel.page == viewModel.lastPage)
-            btnNext.visibility = View.INVISIBLE
+            binding.btnNext.visibility = View.INVISIBLE
         else
-            btnNext.visibility = View.VISIBLE
+            binding.btnNext.visibility = View.VISIBLE
     }
 
     private fun initRecyclerView(){
@@ -86,12 +85,10 @@ class BeerInfoFragment : Fragment() {
         viewModel.beerLiveData.observe(viewLifecycleOwner){ response ->
             when (response) {
                 is Resources.Success -> {
-                    Log.d("__tag success","entro success")
                     hideProgresBar()
                     adapterBeer.updateData(response.data!!)
                 }
                 is Resources.Error -> {
-                    Log.d("__tag error","entro error")
                     hideProgresBar()
                     response.message?.let {
                         Toast.makeText(context, "An error ocurred: $it", Toast.LENGTH_SHORT)

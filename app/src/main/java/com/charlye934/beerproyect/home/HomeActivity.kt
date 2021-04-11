@@ -2,6 +2,7 @@ package com.charlye934.beerproyect.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.charlye934.beerproyect.R
@@ -40,6 +41,14 @@ class HomeActivity : AppCompatActivity(), BeerListener {
 
     override fun saveBeer(beer: Beer) {
         viewModel.saveData(beer)
+    }
+
+    override fun showNavigation() {
+        binding.bottomNavigationView.visibility = View.VISIBLE
+    }
+
+    override fun hideNavigation() {
+        binding.bottomNavigationView.visibility = View.GONE
     }
 
     private fun changeFramgnet(fragment: Fragment, tag:String){
