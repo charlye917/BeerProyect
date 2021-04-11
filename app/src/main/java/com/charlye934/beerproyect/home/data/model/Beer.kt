@@ -1,8 +1,10 @@
 package com.charlye934.beerproyect.home.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-
+@Parcelize
 data class Beer(
     @SerializedName("id")
     val id: Int,
@@ -20,4 +22,6 @@ data class Beer(
     val foodPairing:List<String>,
     @SerializedName("brewers_tips")
     val brewers_tips:String
-)
+): Parcelable
+
+data class BeerPalet(var color:Int)

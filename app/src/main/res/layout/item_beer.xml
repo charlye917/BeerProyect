@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardViewBeer"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="@dimen/cardview_default_elevation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:background="#dfd3c3">
+
+        <ImageView
+            android:id="@+id/imgBeer"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:src="@mipmap/ic_beer_round"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/tvNameBeer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="4dp"
+            android:background="#c7b198"
+            android:padding="8dp"
+            android:textColor="@android:color/white"
+            android:theme="@style/TextTitle" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
