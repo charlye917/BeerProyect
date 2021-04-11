@@ -18,12 +18,13 @@ class BeerViewModel(private val app:Application) : ViewModel() {
     private val beerInteractor: BeerInteractor = BeerInteractorImp()
     val beerLiveData: MutableLiveData<Resources<List<Beer>>> = MutableLiveData()
     lateinit var beerInfo: Beer
+    var cont = 1
 
     fun getBeer() = viewModelScope.launch(Dispatchers.IO) {
         beerLiveData.postValue(Resources.Loading())
         try {
             if(CheckConnection.isNetworkAvaible(app)){
-                beerLiveData.postValue(beerInteractor.getBeerInfo())
+                beerLiveData.postValue(beerInteractor.getBeerInfo(cont))
             }else{
                 beerLiveData.postValue(Resources.Error(app.getString(R.string.internet_not_avaible)))
             }

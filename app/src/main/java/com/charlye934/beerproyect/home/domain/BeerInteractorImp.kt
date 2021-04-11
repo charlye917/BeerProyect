@@ -9,7 +9,7 @@ class BeerInteractorImp : BeerInteractor{
 
     private val beerRepository: BeerRepository = BeerRepositoryImp()
 
-    override suspend fun getBeerInfo(): Resources<List<Beer>> {
-        return beerRepository.getBeerInfo()
+    override suspend fun getBeerInfo(page:Int): Resources<List<Beer>> {
+        return beerRepository.getBeerInfo(page)
     }
 }

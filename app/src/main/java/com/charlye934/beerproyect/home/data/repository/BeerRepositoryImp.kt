@@ -9,8 +9,8 @@ class BeerRepositoryImp: BeerRepository {
 
     private val beerApiService = BeerApiService.Builder().build()
 
-    override suspend fun getBeerInfo(): Resources<List<Beer>> {
-        return responseToResources(beerApiService.getListBeer())
+    override suspend fun getBeerInfo(page:Int): Resources<List<Beer>> {
+        return responseToResources(beerApiService.getListBeer(page))
     }
 
     private fun responseToResources(response: Response<List<Beer>>): Resources<List<Beer>>{

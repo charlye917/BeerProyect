@@ -5,5 +5,5 @@ import com.charlye934.beerproyect.utils.Resources
 import retrofit2.Response
 
 interface BeerRepository {
-    suspend fun getBeerInfo(): Resources<List<Beer>>
+    suspend fun getBeerInfo(page:Int): Resources<List<Beer>>
 }

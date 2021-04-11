@@ -15,6 +15,7 @@ import com.charlye934.beerproyect.home.HomeActivity
 import com.charlye934.beerproyect.home.presentation.adapter.BeerAdapter
 import com.charlye934.beerproyect.home.presentation.viewmodel.BeerViewModel
 import com.charlye934.beerproyect.utils.Resources
+import kotlinx.android.synthetic.main.fragment_beer_info.*
 
 class BeerInfoFragment : Fragment() {
 
@@ -38,10 +39,18 @@ class BeerInfoFragment : Fragment() {
                 listener
             )
 
+            configButtons()
             getDataBeer()
             initRecyclerView()
             setOnClickAction()
         }
+    }
+
+    private fun configButtons(){
+        if(viewModel.cont == 1)
+            btnPrevious.visibility = View.INVISIBLE
+        else
+            btnPrevious.visibility = View.VISIBLE
     }
 
     private fun initRecyclerView(){
@@ -53,6 +62,16 @@ class BeerInfoFragment : Fragment() {
 
     private fun setOnClickAction(){
         binding.refresh.setOnRefreshListener { getDataBeer() }
+        binding.btnNext.setOnClickListener {
+            viewModel.cont += 1
+            configButtons()
+            getDataBeer()
+        }
+        binding.btnPrevious.setOnClickListener {
+            viewModel.cont -= 1
+            configButtons()
+            getDataBeer()
+        }
     }
 
     private fun getDataBeer(){
@@ -60,20 +79,24 @@ class BeerInfoFragment : Fragment() {
         binding.refresh.isRefreshing = false
         viewModel.getBeer()
         viewModel.beerLiveData.observe(viewLifecycleOwner){ response ->
-            when(response){
-                is Resources.Success ->{
+            when (response) {
+                is Resources.Success -> {
+                    Log.d("__tag success","entro success")
                     hideProgresBar()
                     adapterBeer.updateData(response.data!!)
                 }
                 is Resources.Error -> {
+                    Log.d("__tag error","entro error")
                     hideProgresBar()
                     response.message?.let {
-                        Toast.makeText(context, "An error ocurred: $it", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "An error ocurred: $it", Toast.LENGTH_SHORT)
+                            .show()
                     }
                 }
-                is Resources.Loading ->{
+                is Resources.Loading -> {
                     showProgresBar()
                 }
+
             }
         }
     }

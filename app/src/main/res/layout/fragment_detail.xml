@@ -55,7 +55,7 @@
                     android:layout_alignStart="@+id/tvNameBeer"
                     android:layout_alignLeft="@+id/tvNameBeer"
                     android:layout_marginTop="8dp"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:theme="@style/TextDescription"
                     android:text="TAG LINE" />
 
@@ -67,6 +67,7 @@
                     android:layout_alignStart="@+id/tvTaglinenBeer"
                     android:layout_alignLeft="@+id/tvTaglinenBeer"
                     android:text="First brewed"
+                    android:textSize="15sp"
                     android:layout_marginTop="4dp"
                     android:theme="@style/TextDescription"/>
 
@@ -78,26 +79,53 @@
                     android:layout_alignStart="@+id/imgBeer"
                     android:layout_alignLeft="@+id/imgBeer"
                     android:text="Description"
+                    android:layout_marginTop="8dp"
                     android:theme="@style/TextDescription"/>
+
+                <TextView
+                    android:id="@+id/tvFoodPairingTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvDescriptionBeer"
+                    android:text="@string/food_pairing"
+                    android:textSize="20dp"
+                    android:layout_marginTop="16dp"
+                    android:theme="@style/TextTitle" />
 
                 <TextView
                     android:id="@+id/tvFoodPairing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tvFoodPairingTitle"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toEndOf="@+id/tvFoodPairingTitle"
+                    android:layout_toRightOf="@+id/tvFoodPairingTitle"
                     android:text="Food pairing"
-                    android:theme="@style/TextDescription"
-                    android:layout_below="@+id/tvDescriptionBeer"
-                    android:layout_toEndOf="@+id/tvDescriptionBeer"
-                    android:layout_toRightOf="@+id/tvDescriptionBeer" />
+                    android:theme="@style/TextDescription" />
+
+                <TextView
+                    android:id="@id/tvBrewersTipsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvFoodPairing"
+                    android:layout_alignStart="@+id/tvFoodPairingTitle"
+                    android:layout_alignLeft="@+id/tvFoodPairingTitle"
+                    android:text="@string/brewers_tips"
+                    android:textSize="20sp"
+                    android:layout_marginTop="16dp"
+                    android:theme="@style/TextTitle" />
 
                 <TextView
                     android:id="@+id/tvBrewersTips"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:theme="@style/TextDescription"
-                    android:layout_below="@+id/tvFoodPairing"
-                    android:layout_toEndOf="@+id/imgBeer"
-                    android:layout_toRightOf="@+id/imgBeer" />
+                    android:layout_alignTop="@+id/tvBrewersTipsTitle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toEndOf="@+id/tvBrewersTipsTitle"
+                    android:layout_toRightOf="@+id/tvBrewersTipsTitle"
+                    android:text="Brewers tips"
+                    android:theme="@style/TextDescription" />
             </RelativeLayout>
         </ScrollView>
     </LinearLayout>

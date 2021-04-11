@@ -44,6 +44,7 @@ class BeerDetailFragment : Fragment() {
 
     private fun setData(){
         setupBackgroundColor(beer.imageUrl)
+
         binding.imgBeer.let {
             Glide.with(it!!)
                 .load(beer.imageUrl)
@@ -55,8 +56,16 @@ class BeerDetailFragment : Fragment() {
         binding.tvDescriptionBeer.text = beer.description
         binding.tvTaglinenBeer.text = beer.tagline
         binding.tvFirstBrewed.text = beer.firstBrewed
-        binding.tvFoodPairing.text = beer.foodPairing.toString()
+        binding.tvFoodPairing.text = getFoodPairing()
         binding.tvBrewersTips.text = beer.brewers_tips
+    }
+
+    private fun getFoodPairing():String{
+        var result = ""
+        for(i in 0 until beer.foodPairing.size){
+            result = "- " + beer.foodPairing[i] + "\n" + result
+        }
+        return result
     }
 
     private fun setupBackgroundColor(url: String) {

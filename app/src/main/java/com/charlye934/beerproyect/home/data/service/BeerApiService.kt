@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 interface BeerApiService {
     @GET("v2/beers")
-    suspend fun getListBeer(@Query("page") page:Int = 10): Response<List<Beer>>
+    suspend fun getListBeer(@Query("page") page:Int): Response<List<Beer>>
 
     class Builder{
         fun build(): BeerApiService{
