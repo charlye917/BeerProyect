@@ -47,10 +47,15 @@ class BeerInfoFragment : Fragment() {
     }
 
     private fun configButtons(){
-        if(viewModel.cont == 1)
+        if(viewModel.page == 1)
             btnPrevious.visibility = View.INVISIBLE
         else
             btnPrevious.visibility = View.VISIBLE
+
+        if(viewModel.page == viewModel.lastPage)
+            btnNext.visibility = View.INVISIBLE
+        else
+            btnNext.visibility = View.VISIBLE
     }
 
     private fun initRecyclerView(){
@@ -63,12 +68,12 @@ class BeerInfoFragment : Fragment() {
     private fun setOnClickAction(){
         binding.refresh.setOnRefreshListener { getDataBeer() }
         binding.btnNext.setOnClickListener {
-            viewModel.cont += 1
+            viewModel.page += 1
             configButtons()
             getDataBeer()
         }
         binding.btnPrevious.setOnClickListener {
-            viewModel.cont -= 1
+            viewModel.page -= 1
             configButtons()
             getDataBeer()
         }
