@@ -46,7 +46,7 @@ class BeerDetailFragment : Fragment() {
         setupBackgroundColor(beer.imageUrl)
 
         binding.imgBeer.let {
-            Glide.with(it!!)
+            Glide.with(it)
                 .load(beer.imageUrl)
                 .error(R.drawable.ic_beer)
                 .into(binding.imgBeer)
@@ -80,6 +80,7 @@ class BeerDetailFragment : Fragment() {
                             val intColor = palette?.lightMutedSwatch?.rgb ?: 0
                             val myPalette = BeerPalet(intColor)
                             binding.palette = myPalette
+                            Log.d("__tag", binding.palette.toString())
                         }
                 }
 

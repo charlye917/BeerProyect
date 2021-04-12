@@ -86,12 +86,10 @@ class BeerInfoFragment : Fragment() {
         viewModel.beerLiveData.observe(viewLifecycleOwner){ response ->
             when (response) {
                 is Resources.Success -> {
-                    Log.d("__tag success","entro success")
                     hideProgresBar()
                     adapterBeer.updateData(response.data!!)
                 }
                 is Resources.Error -> {
-                    Log.d("__tag error","entro error")
                     hideProgresBar()
                     response.message?.let {
                         Toast.makeText(context, "An error ocurred: $it", Toast.LENGTH_SHORT)
@@ -101,7 +99,6 @@ class BeerInfoFragment : Fragment() {
                 is Resources.Loading -> {
                     showProgresBar()
                 }
-
             }
         }
     }

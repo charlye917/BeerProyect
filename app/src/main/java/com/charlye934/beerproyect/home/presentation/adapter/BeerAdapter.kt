@@ -38,7 +38,7 @@ class BeerAdapter(
         fun bind(beer: Beer){
             binding.tvNameBeer.text = beer.name
             binding.imgBeer.let {
-                Glide.with(it!!)
+                Glide.with(it)
                     .load(beer.imageUrl)
                     .error(R.drawable.ic_beer)
                     .into(binding.imgBeer)
